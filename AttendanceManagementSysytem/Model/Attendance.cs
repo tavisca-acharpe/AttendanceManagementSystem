@@ -7,7 +7,7 @@ namespace AttendanceManagementSysytem.Model
 {
     public class Attendance
     {
-        int EmpId;
-        DateTime dateTime;
+        public int EmpId { get; set; }
+        public DateTime DateTime { get; set; }
     }
 }

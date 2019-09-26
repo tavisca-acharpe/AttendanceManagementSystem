@@ -7,6 +7,17 @@ namespace AttendanceManagementSysytem.Model
 {
     public class AttendanceRegister
     {
-        static List<Attendance> attendanceList = new List<Attendance>();
+        public static List<Attendance> attendanceList =new  List<Attendance>();
+        
+        public bool AddAttendance(Attendance attendance)
+        {
+            attendanceList.Add(attendance);
+            return true;
+        }
+
+        public List<Attendance> ShowAttendanceList()
+        {
+            return attendanceList;
+        }
     }
 }

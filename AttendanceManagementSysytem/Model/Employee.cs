@@ -12,7 +12,30 @@ namespace AttendanceManagementSysytem.Model
         public string Name { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
         public int ManagerId { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
 
-        public void ViewStatistics(int Id)
+        public string[] ViewStatistics(int id)
+        {
+            AttendanceRegister attendanceRegister = new AttendanceRegister();
+            List<Attendance> attendanceList = attendanceRegister.ShowAttendanceList();
+           string[] val = new string[attendanceList.Count];
+            int i = 0;
+            foreach (var item in attendanceList)
+            {
+                val[i]=item.EmpId.ToString()+"  "+item.DateTime.ToString();
+                i++;
+            }
+            return val;
+        }
+
+        public void MarkAttenadance(int id, DateTime dateTime)
+        {
+            AttendanceRegister attendanceRegister = new AttendanceRegister();
+            Attendance attendance = new Attendance();
+            attendance.EmpId = id;
+            attendance.DateTime = dateTime;
+            attendanceRegister.AddAttendance(attendance);
+        }
+
+        void IEmployee.ViewStatistics(int Id)
         {
             throw new NotImplementedException();
         }

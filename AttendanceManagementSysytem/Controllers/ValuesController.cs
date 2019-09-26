@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using AttendanceManagementSysytem.Model;
 using Microsoft.AspNetCore.Mvc;
 
 namespace AttendanceManagementSysytem.Controllers
@@ -14,7 +15,11 @@ namespace AttendanceManagementSysytem.Controllers
         [HttpGet]
         public ActionResult<IEnumerable<string>> Get()
         {
-            return new string[] { "value1", "value2" };
+            Employee employee = new Employee();
+            employee.MarkAttenadance(1, DateTime.Now);
+            employee.MarkAttenadance(2, DateTime.Now);
+            employee.MarkAttenadance(3, DateTime.Now);
+            return employee.ViewStatistics(1);
         }
 
         // GET api/values/5
