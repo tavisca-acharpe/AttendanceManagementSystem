@@ -13,7 +13,7 @@ namespace AttendanceManagementSysytem.Controllers
     {
         // GET api/values
         [HttpGet]
-        public ActionResult<IEnumerable<string>> Get()
+        public ActionResult<IEnumerable<Attendance>> Get()
         {
             Employee employee = new Employee();
             employee.MarkAttenadance(1, DateTime.Now);

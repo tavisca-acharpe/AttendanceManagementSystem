@@ -12,7 +12,7 @@ namespace AttendanceManagementSysytem.Model
         public string Name { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
         public int ManagerId { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
 
-        public string[] ViewStatistics(int id)
+        public Attendance[] ViewStatistics(int id)
         {
             AttendanceRegister attendanceRegister = new AttendanceRegister();
             List<Attendance> attendanceList = attendanceRegister.ShowAttendanceList();
@@ -23,7 +23,7 @@ namespace AttendanceManagementSysytem.Model
                 val[i]=item.EmpId.ToString()+"  "+item.DateTime.ToString();
                 i++;
             }
-            return val;
+            return attendanceList.ToArray();
         }
 
         public void MarkAttenadance(int id, DateTime dateTime)
