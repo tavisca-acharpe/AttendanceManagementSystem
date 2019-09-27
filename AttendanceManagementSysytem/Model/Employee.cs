@@ -6,13 +6,14 @@ using System.Threading.Tasks;
 
 namespace AttendanceManagementSysytem.Model
 {
-    public class Employee : IEmployee
+    public class Employee :IEmployee
     {
+
         public int Id { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
         public string Name { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
         public int ManagerId { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
 
-        public Attendance[] ViewStatistics(int id)
+        public Attendance[] ViewStatistics()
         {
             AttendanceRegister attendanceRegister = new AttendanceRegister();
             List<Attendance> attendanceList = attendanceRegister.ShowAttendanceList();
@@ -35,9 +36,27 @@ namespace AttendanceManagementSysytem.Model
             attendanceRegister.AddAttendance(attendance);
         }
 
-        void IEmployee.ViewStatistics(int Id)
+        public List<string> ViewStatisticsById(int EmpId)
         {
+            List<string> ArrayDateTime = new List<string>();
+            int i = 0;
+            AttendanceRegister attendanceRegister = new AttendanceRegister();
+            foreach (var item in attendanceRegister.ShowAttendanceList())
+            {
+                if (item.EmpId==EmpId)
+                {
+                    ArrayDateTime.Add(item.DateTime.ToString());
+                    i++;
+                }
+            }
+            return ArrayDateTime;
+        }
+
+        void IEmployee.ViewStatistics(int Id)
+        {     
             throw new NotImplementedException();
         }
+
+        
     }
 }

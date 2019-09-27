@@ -8,16 +8,13 @@ namespace Attendance_Managment_System_Api
     {
         public void AddEmployee()
         {
-
         }
 
         public void RemoveEmployee()
         {
-
         }
         public void UpdateEmployee()
         {
-
         }
     }
 }
