@@ -19,6 +19,17 @@ namespace Attendance_Managment_System_Api.Controller
             Employee employee = new Employee();
             return employee.ViewStatistics();
         }
+        
+        
+     
+         [HttpPost]
+        public void Post([FromBody] int id,[FromBody] string name)
+        {
+            Employee employee = new Employee();
+           //Add employee implementation to be added here
+        }
+        
+
         // POST api/values
         [HttpPost]
         public void Post([FromBody] string value)
