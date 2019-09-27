@@ -12,6 +12,13 @@ namespace Attendance_Managment_System_Api.Controller
     [ApiController]
     public class AdminController : ControllerBase
     {
+
+        [HttpGet]
+        public ActionResult<IEnumerable<Attendance>> Get()
+        {
+            Employee employee = new Employee();
+            return employee.ViewStatistics();
+        }
         // POST api/values
         [HttpPost]
         public void Post([FromBody] string value)
