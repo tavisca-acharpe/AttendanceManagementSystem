@@ -21,7 +21,7 @@ namespace Attendance_Managment_System_Api.Controller
         }
 
         // GET api/values/5
-        [HttpGet("{id}")]
+        [HttpGet("{EmpId}")]
         public List<string> Get(int EmpId)
         {
             Employee employee = new Employee();

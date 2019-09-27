@@ -12,14 +12,7 @@ namespace Attendance_Managment_System_Api.Controller
     [ApiController]
     public class EmployeeController : ControllerBase
     {
-          // GET api/values
-        [HttpGet]
-        public ActionResult<IEnumerable<Attendance>> Get()
-        {
-            Employee employee = new Employee();
-            return employee.ViewStatistics();
-        }
-
+         
         // GET api/values/5
         [HttpGet("{EmpId}")]
         public List<string> Get(int EmpId)
