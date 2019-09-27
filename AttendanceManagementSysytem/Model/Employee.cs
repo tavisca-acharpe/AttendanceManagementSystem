@@ -16,22 +16,14 @@ namespace AttendanceManagementSysytem.Model
         public Attendance[] ViewStatistics()
         {
             AttendanceRegister attendanceRegister = new AttendanceRegister();
-            List<Attendance> attendanceList = attendanceRegister.ShowAttendanceList();
-           string[] val = new string[attendanceList.Count];
-            int i = 0;
-            foreach (var item in attendanceList)
-            {
-                val[i]=item.EmpId.ToString()+"  "+item.DateTime.ToString();
-                i++;
-            }
-            return attendanceList.ToArray();
+            return attendanceRegister.ShowAttendanceList().ToArray();
         }
 
-        public void MarkAttenadance(int id, DateTime dateTime)
+        public void MarkAttenadance(int EmpId, DateTime dateTime)
         {
             AttendanceRegister attendanceRegister = new AttendanceRegister();
             Attendance attendance = new Attendance();
-            attendance.EmpId = id;
+            attendance.EmpId = EmpId;
             attendance.DateTime = dateTime;
             attendanceRegister.AddAttendance(attendance);
         }
@@ -41,7 +33,8 @@ namespace AttendanceManagementSysytem.Model
             List<string> ArrayDateTime = new List<string>();
             int i = 0;
             AttendanceRegister attendanceRegister = new AttendanceRegister();
-            foreach (var item in attendanceRegister.ShowAttendanceList())
+            List<Attendance> attendanceList = attendanceRegister.ShowAttendanceList();
+            foreach (var item in attendanceList)
             {
                 if (item.EmpId==EmpId)
                 {
@@ -55,8 +48,6 @@ namespace AttendanceManagementSysytem.Model
         void IEmployee.ViewStatistics(int Id)
         {     
             throw new NotImplementedException();
-        }
-
-        
+        }     
     }
 }

@@ -12,6 +12,14 @@ namespace Attendance_Managment_System_Api.Controller
     [ApiController]
     public class EmployeeController : ControllerBase
     {
+          // GET api/values
+        [HttpGet]
+        public ActionResult<IEnumerable<Attendance>> Get()
+        {
+            Employee employee = new Employee();
+            return employee.ViewStatistics();
+        }
+
         // GET api/values/5
         [HttpGet("{EmpId}")]
         public List<string> Get(int EmpId)
@@ -22,7 +30,7 @@ namespace Attendance_Managment_System_Api.Controller
 
         // POST api/values
         [HttpPost]
-        public void Post(int EmpId)
+        public void Post([FromBody] int EmpId)
         {
             Employee employee = new Employee();
             employee.MarkAttenadance(EmpId, DateTime.Now);
