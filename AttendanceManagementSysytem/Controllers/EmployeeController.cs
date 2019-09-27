@@ -30,10 +30,10 @@ namespace Attendance_Managment_System_Api.Controller
 
         // POST api/values
         [HttpPost]
-        public void Post([FromBody] int EmpId)
+        public void Post([FromBody] AttendanceById attendanceById)
         {
             Employee employee = new Employee();
-            employee.MarkAttenadance(EmpId, DateTime.Now);
+            employee.MarkAttenadance(attendanceById.EmpId, DateTime.Now);
         }
     }
 }

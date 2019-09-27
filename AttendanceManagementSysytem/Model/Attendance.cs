@@ -10,4 +10,8 @@ namespace AttendanceManagementSysytem.Model
         public int EmpId { get; set; }
         public DateTime DateTime { get; set; }
     }
+    public class AttendanceById
+    {
+        public int EmpId { get; set; }
+    }
 }
